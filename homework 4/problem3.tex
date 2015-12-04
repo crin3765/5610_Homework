@@ -1,0 +1,12 @@
+\textbf{Polynomial Interpolation} Suppose you want to interpolate to the data $(x_i, y_i)$, $i = 0, \ldots, n$ by a polynomial of degree $n$. Show that $$ \Sigma_{i = 0}^n x_i^j L_i(x) = x^j \text{ for } j = 0, \ldots, n.$$
+\textbf{Proof} \\ 
+Note that the above formula is equivalent to interpolating any set of $n$ points where each point is defined by $(x_i, x_i^j)$ and $j \leq 0, 1, \ldots n$. Let $f(x) = x^j$. Then the interpolating polynomial for $\{(x_i, x_i^j)\}$, $i = 0, 1, \ldots , n$ is given by the following:
+\begin{align*}
+\Sigma_{i = 0}^n x_i^j L_i(x) = \Sigma_{i = 0}^n f(x_i) L_i(x)
+\end{align*}
+The points are perfectly interpolated by the function $f(x)$. Since the interpolating polynomial is unique, we know that it must be the case that 
+\begin{align*}
+\Sigma_{i = 0}^n x_i^j L_i(x) = \Sigma_{i = 0}^n f(x_i) L_i(x) = f(x) = x^j.
+\end{align*} 
+
+

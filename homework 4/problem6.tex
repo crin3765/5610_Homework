@@ -1,0 +1,11 @@
+\textbf{The interpolant to symmetric data is symmetric.} Suppose you are given symmetric data $$(x_i, y_i), i = -n, -n + 1, \ldots, n - 1, n, $$
+such that 
+$$ x_{-i} = -x_i, y_{-1} = -y_i, i = 0, 1, \ldots, n.$$
+What is the required degree of the interpolating polynomial? Show that the interpolating polynomial is odd, i.e. $$p(x) = -p(-x).$$
+
+\textbf{Proof}
+We have that 
+\begin{align*}
+p(x_i) = y_i &= -y_{-i} = -p(x_{-i}) = - p(-x_i).
+\end{align*}
+This implies that the function is odd, and that therefore the degree of $p(x)$ must be odd. Since we have $2n + 2$ points (2 from the point $(0, 0)$, we are looking for a degree $2n + 1$ polynomial.

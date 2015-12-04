@@ -1,0 +1,46 @@
+\textbf{Spline versus Cubic Hermite Interpolation} Let the function 
+\begin{align*}
+s(x) &= (\gamma - 1)(x^3 - x^2) + x + 1 \text{ if } x \in [0, 1] \\
+	 &= \gamma x^3 - 5 \gamma x^2 + 8 \gamma x - 4 \gamma + 2 \text{ if } x \in [1, 2]
+\end{align*}
+a) Show that $s$ is the piecewise cubic Hermite interpolant to the data:
+$$s(0) = 1, \qquad s(1) = s(2) = 2, \qquad s'(0) = 1, \qquad s'(1) = \gamma, \qquad s'(2) = 0$$
+\\
+b) For what value of $\gamma$ does $s$ become a spline?
+
+\textbf{Solution}
+\textbf{Part A}\\
+\\
+We first see that
+\begin{align*}
+ s'(x) &= (\gamma - 1)(3x^2 - 2x) + 1 \text{ if } x \in [0, 1] \\
+ s'(x) &= 3\gamma x^2 - 10 \gamma x + 8 \gamma \text{ if } x \in [1, 2]
+\end{align*}
+It follows that 
+\begin{align*}
+s(0) &= (\gamma - 1)(0 - 0) + 0 + 1 = 1\\
+s(1) &= (\gamma - 1)(1 - 1) + 1 + 1 = 2 =  \gamma - 5 \gamma + 8 \gamma - 4\gamma + 2 = s(1)\\
+s(2) &= 8 \gamma - 20 \gamma + 16 \gamma - 4\gamma + 2 = 2\\
+s'(0) &= (\gamma - 1)(0 - 0) + 1 = 1\\
+s'(1) &= (\gamma - 1)(3 - 2) + 1 = \gamma =  3 \gamma - 10 \gamma + 8\gamma = s'(1)\\
+s'(2) &= (12 \gamma - 20 \gamma + 8 \gamma) = 0
+\end{align*}
+Thus, the function $s$ interpolates the data.
+\\
+\textbf{Solution Part B}
+For $s$ to be a cubic spline, it must interpolate the data at $s''(x)$. We get that 
+\begin{align*}
+s''(x) &= (\gamma - 1)(6x - 2) \text{ if } x \in [0, 1]\\
+s''(x) &= 6 \gamma x - 10 \gamma \text{ if } x \in [1, 2]
+\end{align*}
+We set the two equations above equal to each other, and solve for $\gamma$ when $x = 1$.
+\begin{align*}
+(\gamma - 1)(6x - 2) &= 6 \gamma x - 10\gamma, \\
+6x \gamma - 6x - 2\gamma + 2 &= 6x \gamma - 10 \gamma,\\
+-4 - 2 \gamma &= -10 \gamma, \\
+8 \gamma &= 4,\\
+\gamma = \frac{1}{2}
+\end{align*}
+
+Thus, $\gamma$ must be 1/2 in order to be a cubic spline.
+

@@ -1,0 +1,28 @@
+\textbf{The three term recurrence relation} Let the inner product $(f, g)$ be defined by $$ (f, g) = \int_a^b w(x) f(x) g(x) dx.$$ Prove that the sequence of polynomisl defined by
+\begin{align*}
+Q_n &= (x - a_n)Q_{n - 1} - b_n Q_{n - 2} \\
+Q_0 &= 1, Q_1 = x - a_1 \\
+a_n &= (xQ_{n - 1}, Q_{n - 1})/(Q_{n - 1}, Q_{n - 1}) \\
+b_n &= (xQ_{n - 1}, Q_{n-2})/ (Q_{n - 2}, Q_{n - 2})
+\end{align*}
+is orthogonal with respect to the given inner product. This proof uses the property that $$(xf, g) = (f, xg).$$
+
+\textbf{Proof}\\
+We will show this by induction. First, note that $Q_0, Q_1$ are orthogonal to each other, as seen by the following:
+\begin{align*}
+(Q_0, Q_1) &= (1, x - \frac{(x, 1)}{(1,1)})\\
+&= \int_a^b w(x) (x - \frac{(x, 1)}{(1,1)})dx\\
+&= \int_a^b w(x) x dx - \int_a^b w(x) \frac{(x, 1)}{(1,1)} dx\\
+&= (1, x) - (1, \frac{(x, 1)}{(1,1)}) \\
+&= (1, x) - \int_a^b w(x) \frac{\int_a^b w(x) xdx}{\int_a^b w(x)} \\
+&= (1, x) - (1, x)\\
+&= 0. 
+\end{align*}
+
+For the induction, assume that any two polynomials $Q_0, Q_1, \ldots, Q_{n - 1}$ are orthogonal. Then for the $n^{th}$ case, and with $k < n$, note that 
+\begin{align*}
+(Q_n, Q_k) &= (Q_{n - 1} [x - \frac{(xQ_{n - 1}, Q_{n - 1})}{(Q_{n - 1}, Q_{n - 1})}] - [\frac{(xQ_{n - 1}, Q_{n - 2})}{(Q_{n - 2}, Q_{n - 2})}]Q_{n - 2}, Q_k)\\
+&= (xQ_{n - 1}, Q_k) - \frac{(xQ_{n - 1}, Q_{n - 1})}{(Q_{n - 1}, Q_{n - 1})}(Q_{n - 1}, Q_k) - \frac{(xQ_{n - 1}, Q_{n - 2})}{(Q_{n - 2}, Q_{n - 2})}(Q_{n - 2}, Q_k).
+\end{align*}
+
+Note that each of the above terms has a factor of $(Q_{n - i}, Q_k)$, with $0 < i < n$. Since we also have $k < n$, then each of these factors is 0, which means that the entire term is 0. Thus, since the above equation is 0, we have that the sequence of polynomials must be orthogonal.

@@ -1,0 +1,21 @@
+\textbf{Linear Independence of Bernstein-Bezier Basis Functions} show that, for all $n \geq 0$, 
+$$\sigma_{i = 0}^n c_i \binom{n}{i} x^i (1 - x)^{n - i} = 0 \rightarrow c_i = 0, i = 0, \cdots, n.$$
+
+\textbf{Proof}\\
+In order to show that the Bernstein Bezier functions are linearly independent, we first note that 
+$$B_{k, n}(t) = \Sigma_{i = k}^n (-1)^{i - k} \binom{n}{i} \binom{i}{k}t^i$$
+which is simply a change of basis to the power basis. Now, assume that the Bernstein-Bezier functions are not linearly independent. Then for some set of $c_i$, we have that
+\begin{align*}
+ 0 &= \Sigma_{i = 0}^n B_{i, n}(t) \\
+ &= c_0 \Sigma_{i = 0}^n (-1)^i \binom{n}{i} \binom{i}{0}t^i + c_1 \Sigma_{i = 1}^n (-1)^{i - 1} \binom{n}{i} \binom{i}{1}t^i + \cdots + c_n \Sigma_{i = n}^n (-1)^{i - n} \binom{n}{i} \binom{i}{n}t^i\\
+ &= c_0 + \Sigma_{i = 0}^1 \binom{n}{1} \binom{1}{1}t^1+ \cdots + \Sigma_{i = 0}^n \binom{n}{n} \binom{n}{n}t^n
+ \end{align*}
+
+ Since the power basis is linearly independent, we see that in order to have a linearly dependent set, we require that 
+ \begin{align*}
+c_0 &= 0\\
+0 &= \Sigma_{i = 0}^1 \binom{n}{1} \binom{1}{1}\\
+&\vdots\\
+&= \Sigma_{i = 0}^n \binom{n}{n} \binom{n}{n}
+ \end{align*}
+ which implies that $c_0 = c_1 = \cdots = c_n = 0$. Thus, the Bernstein Bezier functions are linearly independent.

@@ -1,0 +1,41 @@
+\textbf{Uniqueness of the interpolating polynomial} Assume you are given the data $$x_i : 1, 2,4, 8$$
+$$y_i : 1, 2, 3, 4$$
+Construct the interpolating polynomial using 
+\begin{itemize}
+\item the power form
+\item the Lagrange form
+\item the Newton form
+\end{itemize}
+and show that they all yield the same polynomial.
+
+\textbf{Solution}
+
+Using the power method, we have the Vandermonde Matrix given by
+$$A = \begin{bmatrix}
+1 & x_0 & x_0^2 & x_0^3 \\
+1 & x_1 & x_1^2 & x_1^3 \\
+1 & x_2 & x_2^2 & x_2^3 \\
+1 & x_3 & x_3^2 & x_3^3 \\
+\end{bmatrix}$$
+With the given values for $x_i$, we get the matrix
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1\\
+1 & 2 & 4 & 8\\
+1 & 4 & 16 & 64\\
+1 & 8 & 64 & 512\\
+\end{bmatrix}
+$$
+Let $b = [1 2 3 4]^T$. Then we can obtain the interpolated polynomial by solving the system $Ax = b$, where $b$ returns the coefficients of the given interpolating polynomial. Using Mathematica to solve the system, we get the polynomial $$p(x) = -\frac{10}{21} + \frac{7x}{4} - \frac{7x^2}{24} + \frac{x^3}{56}.$$
+
+Using the Lagrange Form, we get the following formula:
+\begin{align*} 
+p(x) &= \frac{(x - x_1) (x - x_2) (x - x_3)}{(x_0 - x_1)(x_0 - x_2)(x_0 - x_3)} + 2 \frac{(x - x_0)(x - x_2)(x - x_3)}{(x_1 - x_0)(x_1 - x_2)(x_1 - x_3)} + 3 \frac{(x - x_0)(x - x_1)(x - x_3)}{(x_2 - x_0)(x_2 - x_1)(x_2 - x_3)} \\ &+ 4 \frac{(x - x_0)(x - x_1)(x - x_2)}{(x_3 - x_0)(x_3 - x_1)(x_3 - x_2)}.
+\end{align*}
+Substituting in the values given above for $x_i$ and expanding the term using Mathematica, we see that we get the polynomial $$p(x) = -\frac{10}{21} + \frac{7x}{4} - \frac{7x^2}{24} + \frac{x^3}{56}.$$
+
+With Newton's method of divided difference, we get the equation
+$$p_n(x) = f(x_0) + (x - x_0)f[x_0, x_1] + (x - x_0)(x - x_1)f[x_0, x_1, x_2] + (x - x_0)(x - x_1)(x - x_2)f[x_0, x_1, x_2, x_3]$$
+which, when expanded out yields $p(x) =  -\frac{10}{21} + \frac{7x}{4} - \frac{7x^2}{24} + \frac{x^3}{56}$. 
+
+

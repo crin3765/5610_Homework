@@ -1,0 +1,20 @@
+\textbf{Example for Gram Schmidt Process} Use the Gram-Schmidt Process to find a basis of $$\{1, x, e^x\}$$ that is orthonormal with respect to the inner product $$(f, g) = \int_{0}^1 f(x) g(x) dx.$$
+
+\textbf{Solution}\\
+
+We construct an orthonormal basis $V = \{v_1, v_2, v_3\}$ that spans $\{1, x, e^x\}$ by first setting $v_1 = 1$. Then we can create an orthonormal basis by setting
+\begin{align*}
+v_2 &= x - \frac{\int_0^1 x dx}{\int_0^1 dx}\\
+&= x - \frac{1}{2}
+\end{align*}
+We then normalize $v_2$ by the following:
+$$v_2 = \frac{v_2}{\sqrt{(v_2, v_2)}} = \sqrt{3}(2x - 1).$$
+For $v_3$, we follow the same procedure: 
+\begin{align*}
+v_3 &= e^x - \frac{\int_0^1 e^x dx}{\int_0^1 dx} - \frac{\int_0^1 e^x (\sqrt{3}(2x - 1)) dx}{\int_0^1 (\sqrt{3}(2x - 1))^2 dx}\\
+&= e^x - (e^x - 1) - (-\sqrt{3}(-3 + e)) \\
+&= 1 + \sqrt{3}(-3 + e)
+\end{align*}
+
+To normalize $v_3$, we calculate $$v_3 = \frac{v_3}{\sqrt{(v_3, v_3)}} = 1 + \frac{\sqrt{3}(-3 + e)}{1 + \sqrt{3}(-3 + e)}$$
+Our orthonormal basis that spans $\{1, x, e^x\}$ is given by $$v = \{1, \sqrt{3}(2x - 1), 1 + \sqrt{3}(-3 + e)\}.$$

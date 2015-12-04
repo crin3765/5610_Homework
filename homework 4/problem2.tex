@@ -1,0 +1,19 @@
+\textbf{More on Cubic Splines} Consider the data $$x_i : 1, 2, 3, 4$$ $$y_i : 1, 8, 27, 64$$
+
+\begin{itemize}
+\item[a] Construct the cubic interpolant, i.e., find the cubic polynomial $p$ that satisfies $$p(x_i) = y_i$$ and draw its graph.
+\item[b] Construct the interpolating natural cubic spline and draw its graph.
+\item[c] Comment on your results
+\end{itemize}
+
+\textbf{Proof}
+
+The cubic interpolant for the given data is $p(x) = x^3$. There are a few ways to see this. The first is to note that an interpolating polynomial is unique. In this case we have the points $(x_i, x_i^3)$. Since $f(x) = x^3$ interpolates the data perfectly, we have that it must be the case that $p(x) = x^3$. Another way to determine this is by using the Lagrange form. Using this method, we get the following:
+\begin{align*}
+p(x) &= \Sigma_{i = 0}^n x_i^3 L_i(x) \\
+&= \frac{(x - x_1)(x - x_2)(x - x_3)}{(x_0 - x_1)(x_0 - x_2)(x_0 - x_3)} 
++ \frac{(x - x_0)(x - x_2)(x - x_3)}{(x_1 - x_0)(x_1 - x_2)(x_1 - x_3)} \\
+&+ \frac{(x - x_0)(x - x_1)(x - x_3)}{(x_2 - x_0)(x_2 - x_1)(x_2 - x_3)}
++ \frac{(x - x_0)(x - x_1)(x - x_2)}{(x_3 - x_0)(x_3 - x_1)(x_3 - x_2)}
+\end{align*}
+Expanding and simplifying this yeilds $p(x) = x^3$.

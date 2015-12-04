@@ -1,0 +1,12 @@
+\textbf{The Method of Undetermined Coefficients} Suppose that for some reason you wish to use a differentiation formula of the form
+$$ f'(a) = \frac{1}{h}(\alpha_0f(a) + \alpha_1f(a + \frac{h}{3}) + \alpha_2f(a + \frac{h}{2}) + \alpha_3 f(a + h)),$$ where the $\alpha$s so as to make the formula exact for polunomials of degree as high as possible. What are the $\alpha$s?
+
+\textbf{Solution}
+We expand around the points $f(a + \frac{h}{3}), f(a + \frac{h}{2}), f(a + h)$ with Taylor series and input that into the function $f'(a)$. We then group our coefficients for $f(a), f'(a), f''(a), f'''(a)$. This yields a system of four equations, where 
+\begin{align*}
+(\alpha_0 + \alpha_1 + \alpha_2 + \alpha_3) &= 0 \\
+h(\alpha_1/3 + \alpha_2 / 2 + \alpha_3) &= 1\\
+h^2(\alpha_2/ 18 + \alpha_2 / 8 + \alpha_3/2) &= 0\\
+h^3(\alpha_1/ 243 + \alpha_2 / 48 + \alpha_3 / 6) &= 0 
+\end{align*}
+This yeilds the solution $\alpha_0 = \frac{-24}{5h}, \alpha_1 = \frac{81}{10h}, \alpha_2 = \frac{-16}{5h}, \alpha_3 = \frac{-1}{10h}$. 
